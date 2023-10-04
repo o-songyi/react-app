@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import Hello from './Hello';
+import Wrapper from './Wrapper';
 
 function Header(props) {
   console.log('props',props.title)
@@ -166,6 +168,9 @@ function App() {
         }}>CREATE</a></li>
         {contextControl}
       </ul>
+      <Wrapper>
+        <Hello color="green" />
+      </Wrapper>
     </div>
   );
 }
