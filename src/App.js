@@ -169,7 +169,9 @@ function App() {
         {contextControl}
       </ul>
       <Wrapper>
-        <Hello color="green" />
+        {/* true는 자바스크립트 값이기때문에 중괄호로 감싸주어야함 */}
+        {/* props 이름만 작성하고 값 설정을 생략한다면 true */}
+        <Hello color="green" name="sally" isSpecial />
       </Wrapper>
     </div>
   );
