@@ -2,6 +2,7 @@ import {useState} from 'react';
 import Hello from './Hello';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
+import InputSample from './InputSample';
 
 function Header(props) {
   console.log('props',props.title)
@@ -174,9 +175,8 @@ function App() {
         {/* props 이름만 작성하고 값 설정을 생략한다면 true */}
         <Hello color="green" name="sally" isSpecial />
       </Wrapper>
-      <Counter>
-
-      </Counter>
+      <Counter />
+      <InputSample />
     </div>
   );
 }
