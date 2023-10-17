@@ -19,17 +19,20 @@ function App() {
     {
       id: 1,
       username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      email: 'public.velopert@gmail.com',
+      active: true
     },
     {
       id: 2,
       username: 'tester',
-      email: 'tester@example.com'
+      email: 'tester@example.com',
+      active: false
     },
     {
       id: 3,
       username: 'liz',
-      email: 'liz@example.com'
+      email: 'liz@example.com',
+      active: false
     }
   ]);
 
@@ -49,9 +52,17 @@ function App() {
       })
       nextId.current += 1;
   }
-  
+
   const onRemove = id => {
     setUsers(users.filter(user=>user.id !== id));
+  }
+
+  // 배열의 불변성을 유지하면서 배열을 업데이트 할 때에도 map 함수 사용
+  const onToggle = id => {
+    setUsers(
+      users.map(user =>
+        user.id === id ? {...user, active: !user.active} : user)
+    )
   }
 
   return (
@@ -62,7 +73,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove}></UserList>
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle}></UserList>
     </div>
   );
 }
